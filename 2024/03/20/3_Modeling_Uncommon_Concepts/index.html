@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}   MathJax.Hub.Config({     tex2jax: {         inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],         skipTags: [&#39;script&#39;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/03/20/3_Modeling_Uncommon_Concepts/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}   MathJax.Hub.Config({     tex2jax: {         inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],         skipTags: [&#39;script&#39;,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/long_tail1.png">
+<meta property="og:image" content="http://example.com/images/long_tail2.png">
+<meta property="og:image" content="http://example.com/images/long_tail3.png">
+<meta property="og:image" content="http://example.com/images/long_tail5.png">
+<meta property="article:published_time" content="2024-03-20T19:24:08.402Z">
+<meta property="article:modified_time" content="2024-03-20T19:24:08.402Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/long_tail1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-3_Modeling_Uncommon_Concepts" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/" class="article-date">
+  <time class="dt-published" datetime="2024-03-20T19:24:08.402Z" itemprop="datePublished">2024-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><img src="/images/long_tail1.png"><br>When analyzing real-world KGs, we find that when a relation is uncommon, the entities within its facts are also more uncommon, which can be viewed in the above figure, which shows a histogram about relation frequencies and the corresponding proportions of uncommon entities in DBpedia.<br>Specifically, an entity is treated as uncommon when it appears less or equal to 5 times in all triplets of the KG. From figure, it is obvious that uncommon relations involve more uncommon entities than frequent relations. Therefore, uncommon relations and uncommon entities should be tackled together as two sides of a coin.<br>Uncommon entities and relations are important because they compose many facts in KGs. However, as with other data-imbalanced problems, modeling uncommon entities and relations is more difficult than common ones.</p>
+<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>To model the uncommon entities and relations in the KG, we proposed a framework consisting of three modules:</p>
+<ol>
+<li>A <strong>description encoder</strong> that takes triple descriptions as the input and produces corresponding text embeddings.</li>
+<li>A <strong>triple generator</strong> that takes text embeddings as input and generates extra triple embeddings to relieve the data sparsity of uncommon entities and relations.</li>
+<li>A <strong>meta-learner</strong> that takes all available triple embeddings as inputs and learns a meta-model. This meta-model can be easily adapted to fit uncommon relations and entities.</li>
+</ol>
+<h2 id="Description-Encoder"><a href="#Description-Encoder" class="headerlink" title="Description Encoder"></a>Description Encoder</h2><p><img src="/images/long_tail2.png"><br>The working process of the description encoder involves three steps, which can be viewed in the above figure.<br>In the first step, a relation description $d_r$ is encoded into a relation embedding $o_r$.<br>In the second step, the relation embedding $o_r$ is used to compute corresponding entity traits. An entity trait represents the common characteristics of entities related to a special relation.<br>In a sense, a trait is like an entity type but is more flexible. For each relation $r$, we compute two entity traits $T_{rh}$ and $T_{rt}$, for all the head entities and tail entities belonging to the relation $r$.<br>In the third step, both entity traits and entity descriptions are used to compute the entity embeddings $o_h$ and $o_t$, for the head entity $h$ and the tail entity $t$.<br>The technical details can be viewed in our paper.</p>
+<h2 id="Triple-Generator"><a href="#Triple-Generator" class="headerlink" title="Triple Generator"></a>Triple Generator</h2><p><img src="/images/long_tail3.png"><br>We call our triple generator Triple Conditional Variational AutoEncoder (TCVAE) based on the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Variational_autoencoder">Conditional Variational Autoencoder (CVAE)</a>.<br>During training, the TCVAE takes the triple embedding $(o_h, o_r, o_t)$ as the input, learns its semantics, and generates the reconstruction triple embedding $(g_h, g_r, g_t)$.<br>During testing, given a specific relation embedding $o_r$ as the condition, the TCVAE can generate high-quality triple embeddings $(g_h, g_r, g_t)$ related to the relation $r$.<br>The technical details can be viewed in our paper.</p>
+<h2 id="Meta-Learner"><a href="#Meta-Learner" class="headerlink" title="Meta-Learner"></a>Meta-Learner</h2><p>In order to ensure that both the description encoder and triple generator have a good generalization ability when handling uncommon relations and entities, we designed a meta-learner during the training process.<br>Specifically, we employ <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.02999">Reptile</a>, a variant of <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.03400">Model-Agnostic Meta-Learning</a>. The technical details can be viewed in our paper.</p>
+<h2 id="Link-Prediction-Experiment"><a href="#Link-Prediction-Experiment" class="headerlink" title="Link Prediction Experiment"></a>Link Prediction Experiment</h2><p><img src="/images/long_tail5.png"><br>In the experiment, we conduct link prediction that predicts the missing entity in incomplete triples, and the results can be viewed in figure, where bold numbers indicate best results over different models on the same metric.<br>Here, we explain several key points in figure, and more details can be viewed in our paper.</p>
+<ol>
+<li>In order to focus on the uncommon relations and entities, we only focus on relations occurring only once in the training set. These relations are also associated with various uncommon entities.</li>
+<li>The category “Ours” refers to our full framework, and we also designed two ablation variants by removing the entity traits and TCVAE.</li>
+<li>We measure the rank of the correct missing entity among all candidates, just like how we evaluate the search engine! Specifically, we use two ranking-based metrics: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank">MRR</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph_embedding#Hits@K">Hits@K</a>. Intuitively, MRR measures the averaging reciprocal rank of correct predictions, and Hits@K measures the proportion of correct predictions ranking in the top-K positions. <strong>For both metrics, the higher, the better.</strong></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/20/3_Modeling_Uncommon_Concepts/" data-id="clu05mpzt0002v2f7h5tw4590" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/03/20/5_Abstractive_Text_Summarization/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/03/20/4_Recommendation_Systems_with_Text_Generation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/20/5_Abstractive_Text_Summarization/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/4_Recommendation_Systems_with_Text_Generation/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

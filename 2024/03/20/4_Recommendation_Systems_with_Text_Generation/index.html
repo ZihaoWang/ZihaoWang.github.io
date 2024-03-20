@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Many recommendation systems are based on Collaborative Filtering. It assumes that if user A has preferences similar to user B on certain items, then A is likely to have preferences similar to B on oth">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/03/20/4_Recommendation_Systems_with_Text_Generation/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Many recommendation systems are based on Collaborative Filtering. It assumes that if user A has preferences similar to user B on certain items, then A is likely to have preferences similar to B on oth">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/rec1.png">
+<meta property="og:image" content="http://example.com/images/rec2.png">
+<meta property="og:image" content="http://example.com/images/rec3.png%22">
+<meta property="og:image" content="http://example.com/images/rec4.png">
+<meta property="og:image" content="http://example.com/images/rec_personal1.png">
+<meta property="og:image" content="http://example.com/images/rec_personal2.png">
+<meta property="og:image" content="http://example.com/images/rec_personal3.png">
+<meta property="og:image" content="http://example.com/images/rec_personal4.png%22">
+<meta property="article:published_time" content="2024-03-20T19:22:36.998Z">
+<meta property="article:modified_time" content="2024-03-20T19:22:36.998Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/rec1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-4_Recommendation_Systems_with_Text_Generation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/20/4_Recommendation_Systems_with_Text_Generation/" class="article-date">
+  <time class="dt-published" datetime="2024-03-20T19:22:36.998Z" itemprop="datePublished">2024-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Many recommendation systems are based on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative Filtering</a>. It assumes that if user A has preferences similar to user B on certain items, then A is likely to have preferences similar to B on other items. For example:</p>
+<ul>
+<li>Alice has watched and enjoyed movies like “Inception,” “Interstellar,” and “Shutter Island.”\n’</li>
+<li>Bob has a similar taste and has also enjoyed these movies.\n’</li>
+<li>Now, if Alice has not watched “The Prestige” (a movie highly rated by Bob), the system might recommend “The Prestige” to Alice based on the shared preferences with Bob.’)<br>Some recommendation systems perform collaborative filtering only with users’ historical rating scores of items; other recommendation systems also consider text information. Our proposed recommendation systems belong to the second category.</li>
+</ul>
+<h1 id="Recommendation-System-1-Rating-Prediction-with-Tips-Generation"><a href="#Recommendation-System-1-Rating-Prediction-with-Tips-Generation" class="headerlink" title="Recommendation System 1: Rating Prediction with Tips Generation"></a>Recommendation System 1: Rating Prediction with Tips Generation</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><img src="/images/rec1.png"><br>Recently, some E-commerce sites, such as Yelp, launched a new interaction box called <strong>Tips</strong> on their mobile platforms.<br>As shown in figure, the left column is a review from the user “Monica H.” and tips from several other users are shown on the right column. In the review text, Monica first introduced the restaurant in general and then narrated her dining experience. In the tips text, users expressed their experience and feelings using short texts, such as “The risotto was excellent. Amazing service.”. They also provide some suggestions to other people directly in several words, such as “You have to make reservations much in advance.” In contrast to item specifications and user reviews, tips have several characteristics:</p>
+<ol>
+<li>Tips are typically single-topic nuggets of information and shorter than reviews, with an average length of about 10 words.</li>
+<li>Tips can express user experience, feelings, and suggestions directly.</li>
+<li>Tips can give other people quick insights, saving the time of reading long reviews.<br>In essence, writing tips and giving a numerical rating are two facets of a user’s product assessment action, expressing the user experience and feelings. Jointly modeling these two facets helps design a better recommendation system.</li>
+</ol>
+<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>The goal of recommendation, similar to collaborative filtering, is to predict a rating given by a user and an item. Additionally, in our proposed task, our model generates abstractive tips in a concise sentence. At the operational stage, only a user and an item are given. There are no given review texts and no tips texts.<br><img src="/images/rec2.png"><br>As shown in figure, our framework contains two major components: <strong>neural rating regression</strong> on the left and <strong>abstractive tips generation</strong> on the right. There are two crucial latent variables : user latent factors $U$ and item latent factors $V$.<br>For neural rating regression, given the user latent factor U and the item latent factor V, a multi-layer network based regression model is employed to project U and V to a rating score.<br>Generating abstractive tips only based on user latent factors and item latent factors is a challenging task. At the testing stage, the input only consists of a user and an item, but without any text information. After obtaining the user latent factor U and the item latent factor V, we should design a strategy to “translate” these two latent vectors into a fluent sequence of words.<br>We employ the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Seq2seq">Sequence-to-Sequence model</a> for tips generation, given the predicted rating score and review information at the training stage.<br>Finally, we integrate the rating prediction and the abstractive tips generation into a unified multi-task learning framework. The technical details can be viewed in the paper.</p>
+<h2 id="Rating-Prediction"><a href="#Rating-Prediction" class="headerlink" title="Rating Prediction"></a>Rating Prediction</h2><p>Our experiments use four standard benchmark datasets from different domains to evaluate our model. There are three datasets from Amazon: Books, Electronics, and Movies &amp; TV. We regard the field “summary” as tips, and the number of tips texts is the same as the number of reviews.<br>Another dataset is from Yelp Challenge 2016. It is a large-scale dataset consisting of restaurant reviews and tips.</p>
+<p><img src="/images/rec3.png%22"><br>For the evaluation of rating prediction in the above figure, we employ two metrics: Mean Absolute Error (MAE) and Root Mean Square Error (RMSE), where both metrics measure the distance between the predicted and correct ratings.<br>The rating prediction results of our framework NRT and comparative models on all datasets are given in figure. Our model consistently outperforms all comparative methods under MAE and RMSE metrics on all datasets.</p>
+<h2 id="Abstract-Tips-Generation"><a href="#Abstract-Tips-Generation" class="headerlink" title="Abstract Tips Generation"></a>Abstract Tips Generation</h2><p><img src="/images/rec4.png"><br>To analyze the linguistic quality and the sentiment correlation between the predicted ratings and the generated tips, we selected some real cases from different domains. The results are listed in figure, where examples of the predicted rating scores and generated tips. In each group, the first line shows the generated tip and the second line shows the golden truth. Although our model generates tips abstractly, tips’ linguistic quality is quite good.</p>
+<h1 id="Recommendation-System-2-Persona-aware-Tips-Generation"><a href="#Recommendation-System-2-Persona-aware-Tips-Generation" class="headerlink" title="Recommendation System 2: Persona-aware Tips Generation"></a>Recommendation System 2: Persona-aware Tips Generation</h1><h2 id="Motivation-1"><a href="#Motivation-1" class="headerlink" title="Motivation"></a>Motivation</h2><p>Based on the previous framework of tips generation, we investigate another dimension, namely user persona, which is plausibly helpful for the task of tips generation. Here, the term “persona” denotes the characteristics of the written text by users, such as wording and style.<br><img src="/images/rec_personal1.png"><br>The above figure-a shows some tips for a shower radio from different users. These tips clearly show different styles, although they all have the same ratings.</p>
+<ul>
+<li>Some users (e.g., 1, 4, and 5) prefer short sentences and direct wordings such as “great,” “easy,” and “excellent” to describe the product quality and their experience directly.</li>
+<li>On the other hand, some users (e.g., 2, 3, and 6) share their experiences indirectly by talking about some facts in longer sentences.<br>Therefore, different users have different “persona” styles when writing tips.<br>Besides, the above figure-b shows a few tips with different ratings from the same user for different items, we can observe that the user prefers short sentences, and he has his style (i.e., preferred vocabulary) for writing tips of different sentiments&#x2F;ratings (e.g., “perfect” and “excellent” for high rating tips, and “piece of crap” for low rating tips).<br>Intuitively, the quality of abstractive tip generation can be improved if the model considers the user persona information when conducting the text generation.</li>
+</ul>
+<h2 id="Our-Approach-1"><a href="#Our-Approach-1" class="headerlink" title="Our Approach"></a>Our Approach</h2><p><img src="/images/rec_personal2.png"><br>This approach extends the previous one depicted in the above figure with the persona modeling.<br>As shown in figure, our framework contains two significant modules: <strong>persona modeling</strong> on the left and <strong>abstractive tips generation</strong> on the right. As the module for tips generation is similar to before, we mainly focus on the module for modeling persona.<br>For modeling persona, our framework leverages the tips and reviews from each user or written by multiple users for the same item.<br>The purpose of persona modeling is that when generating tips for a user U, the model will also consider tips from other users with similar interests to U since they will disclose more item characteristics. We model these similar interests from users’ history reviews by extracting latent topics with a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Variational_autoencoder">Variational Autoencoder</a>.<br>We also designed an external persona memory M to store the persona-related words for the current user and item, which will be used in abstractive tips generation.<br>The technical details can be viewed in our paper.</p>
+<h2 id="Rating-Prediction-1"><a href="#Rating-Prediction-1" class="headerlink" title="Rating Prediction"></a>Rating Prediction</h2><p><img src="/images/rec_personal3.png"><br>As before, we conduct rating prediction to evaluate the recommendation performance, and the rating prediction results are given in the above figure.<br>Our Personal-aware system (PATG) outperforms our previously designed model (NRT) without considering persona.</p>
+<h2 id="Rating-Controlled-Tips-Generation"><a href="#Rating-Controlled-Tips-Generation" class="headerlink" title="Rating Controlled Tips Generation"></a>Rating Controlled Tips Generation</h2><p><img src="/images/rec_personal4.png%22"><br>The main problem setting of this work is to generate persona-aware tips. In order to demonstrate the quality of the tips we generated, we selected some real cases generated by our PATG from different domains for some users and items. The results are listed in the above figure.<br>In the figure, examples of the predicted rating scores and generated tips. In each group, the first line shows the generated tip and the second line shows the golden truth.<br>Although our model generates tips abstractly, tips’ linguistic quality is quite good. The personal properties of the generated tips match the ground truth well.</p>
+<ul>
+<li>In the first case, the generated tip is, “This is a great hat for the price.” The ground truth is, “Thanks, nice quality, excellent price, great deal.” Both sentences contain the terms “great” and “price.”</li>
+<li>In the third case, the generated tips and the ground truth overlap with the terms “replace my old,” and “processor.”<br>Interestingly, sometimes, the framework can select synonyms when generating tips. For instance, the generated tips of the fourth case contain the terms “bought” and “for my husband.” The ground truth contains “purchased” and “for a male.”</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/20/4_Recommendation_Systems_with_Text_Generation/" data-id="clu05mpzu0003v2f76c60gs9v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/20/5_Abstractive_Text_Summarization/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/4_Recommendation_Systems_with_Text_Generation/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

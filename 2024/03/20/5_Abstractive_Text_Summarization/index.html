@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}   MathJax.Hub.Config({     tex2jax: {         inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],         skipTags: [&#39;script&#39;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/03/20/5_Abstractive_Text_Summarization/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}   MathJax.Hub.Config({     tex2jax: {         inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],         skipTags: [&#39;script&#39;,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/summ1.png">
+<meta property="og:image" content="http://example.com/images/summ2.png">
+<meta property="og:image" content="http://example.com/images/summ3.png">
+<meta property="og:image" content="http://example.com/images/summ4.png">
+<meta property="article:published_time" content="2024-03-20T19:25:52.073Z">
+<meta property="article:modified_time" content="2024-03-20T19:25:52.073Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/summ1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-5_Abstractive_Text_Summarization" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/20/5_Abstractive_Text_Summarization/" class="article-date">
+  <time class="dt-published" datetime="2024-03-20T19:25:52.073Z" itemprop="datePublished">2024-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+
+
+
+<h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p><img src="/images/summ1.png"><br>Our investigation reveals that people may naturally follow some inherent structures when writing abstract summaries.<br>To illustrate this observation, we show examples in figure, which are top story summaries or headlines from CNN&#39;s “Technology” channel. After carefully analyzing the summaries, we can find some common structures, such as “What Happened,” “Who Action What,” etc. For example,</p>
+<ul>
+<li>The summary “Apple sues Qualcomm for nearly 1 billion” can be structuralized as “Who (Apple) Action (sues) What (Qualcomm)”.</li>
+<li>Similarly, the summaries “[Twitter] [ﬁxes] [botched @POTUS account transfer]”, “[Uber] [to pay] [$20 million] for misleading drivers”, and “[Bipartisan bill] aims to [reform] [H-1B visa system]” also follow the structure of “Who Action What”.<br>Intuitively, incorporating the latent structure information of summaries into the abstractive summarization model will improve the quality of the generated summaries.</li>
+</ul>
+<h1 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h1><p><img src="/images/summ2.png"><br>As shown in figure, we designed a text-summarization model based on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Seq2seq">Sequence-to-Sequence model</a>, which is a commonlt used framework for text generation.<br>The input is a variable-length sequence $X &#x3D; {x_1, …, x_m}$ representing the source text, the output is also a sequence $Y &#x3D; {y_1, …, y_n}$ representing the generated abstractive summaries, and $<eos>$ is a special token representing the end of a sequence.<br>We also employed <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Variational_autoencoder">Variational Autoencoder</a> to capture the latent structure of texts, such as “Who Action What” or “What Happened” mentioned before.<br>However, the standard VAE is not designed for sequence modeling related tasks. Therefore, we added historical dependencies on the latent variables.<br>As a result, we proposed our <strong>deep recurrent generative decoder (DRGD)</strong> for text summarization.<br>The technical details can be viewed in our paper.</p>
+<h1 id="ROUGE-Evaluation"><a href="#ROUGE-Evaluation" class="headerlink" title="ROUGE Evaluation"></a>ROUGE Evaluation</h1><p><img src="/images/summ3.png"><br>We use <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ROUGE_(metric)">ROUGE</a> score as our evaluation metric. The basic idea of ROUGE is to count the number of overlapping units between generated summaries and the reference summaries, such as overlapped n-grams, word sequences, and word pairs.<br>Here, we report ROUGE-1, ROUGE-2, and ROUGE-L, representing the overlapped 1-gram, 2-gram, and longest common sequences between the generated summary and golden truth.<br>Results from a large-scale dataset of Twitter-like short messages <a target="_blank" rel="noopener" href="https://aclanthology.org/D15-1229/">LCSTS</a> are shown in the above figure, and our model DRGD also achieves the best performance.</p>
+<h1 id="Summary-Case-Analysis"><a href="#Summary-Case-Analysis" class="headerlink" title="Summary Case Analysis"></a>Summary Case Analysis</h1><p><img src="/images/summ4.png"><br>In order to analyze the reasons for improving the performance, we compare the generated summaries by DRGD and the standard decoders <a target="_blank" rel="noopener" href="https://aclanthology.org/N16-1012/">StanD, abstractive summarization with Seq2Seq modeling</a>.<br>The source texts, golden summaries, and generated summaries are shown in the above figure.<br>From the cases, we can observe that DRGD can capture some latent structures consistent with the golden summaries. For example: </p>
+<ul>
+<li>Our result for S(1) “Wuhan wins men’s soccer title at Chinese city games” matches the “Who Action What” structure. However, the standard decoder StanD ignores the latent structures and generates some loose sentences, such as the results for S(1) “Results of men’s volleyball at Chinese city games” does not catch the main points.<br>The reason is that the recurrent variational auto-encoders used in our framework have better representation ability and can capture more effective and complicated latent structures from the text.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/20/5_Abstractive_Text_Summarization/" data-id="clu05mpzv0004v2f7fg2u3szo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/20/5_Abstractive_Text_Summarization/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/4_Recommendation_Systems_with_Text_Generation/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
