@@ -13,12 +13,16 @@
 <meta property="og:site_name" content="Zihao Wang&#39;s Portfolio">
 <meta property="og:description" content="MotivationKnowledge graphs (KGs) are often incomplete and lack certain facts or relations. Knowledge Graph Question Answering (KGQA) systems face challenges when answering questions based on incomplet">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zihaowang.github.io/images/multi_lm1.png">
+<meta property="og:image" content="https://zihaowang.github.io/images/multi_lm2.png">
+<meta property="og:image" content="https://zihaowang.github.io/images/multi_lm4.png">
+<meta property="og:image" content="https://zihaowang.github.io/images/multi_lm5.png">
 <meta property="og:image" content="https://zihaowang.github.io/images/multi_lm6.png">
-<meta property="article:published_time" content="2024-03-20T19:07:48.827Z">
-<meta property="article:modified_time" content="2024-03-20T19:07:48.827Z">
+<meta property="article:published_time" content="2024-03-20T19:49:43.083Z">
+<meta property="article:modified_time" content="2024-03-20T19:49:43.083Z">
 <meta property="article:author" content="Zihao Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zihaowang.github.io/images/multi_lm6.png">
+<meta name="twitter:image" content="https://zihaowang.github.io/images/multi_lm1.png">
   
     <link rel="alternate" href="/atom.xml" title="Zihao Wang's Portfolio" type="application/atom+xml">
   
@@ -76,7 +80,7 @@
         <section id="main"><article id="post-1_Knowledge_Graph_Question_Answering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:07:48.827Z" itemprop="datePublished">2024-03-20</time>
+  <time class="dt-published" datetime="2024-03-20T19:49:43.083Z" itemprop="datePublished">2024-03-20</time>
 </a>
     
   </div>
@@ -85,9 +89,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Knowledge graphs (KGs) are often incomplete and lack certain facts or relations. Knowledge Graph Question Answering (KGQA) systems face challenges when answering questions based on incomplete information. Missing facts can lead to inaccuracies or limitations in the generated answers.<br>When answering questions, this incomplete can be mitigated by providing additional textual information about entities or relations.<br>![](&#x2F;images&#x2F;multi_lm1.png, Fig. 1. A part of Wikidata.)<br>Above is a part of Wikidata. We assume that the purple dashed edge (Q5220733, P19, Q621549) is unknown because the entity “Q5220733” is only connected to one other entity, “Q193592”. Although facts cannot help bridge the gap between “Q5220733” and “Q621549”, additional entity descriptions from Wikipedia could be used to provide a solution.</p>
+        <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Knowledge graphs (KGs) are often incomplete and lack certain facts or relations. Knowledge Graph Question Answering (KGQA) systems face challenges when answering questions based on incomplete information. Missing facts can lead to inaccuracies or limitations in the generated answers.<br>When answering questions, this incomplete can be mitigated by providing additional textual information about entities or relations.<br><img src="/images/multi_lm1.png"><br>Above is a part of Wikidata. We assume that the purple dashed edge (Q5220733, P19, Q621549) is unknown because the entity “Q5220733” is only connected to one other entity, “Q193592”. Although facts cannot help bridge the gap between “Q5220733” and “Q621549”, additional entity descriptions from Wikipedia could be used to provide a solution.</p>
 <p>Now, the question is how to encode entity descriptions into embeddings, and recent language models have become a feasible choice.<br>Previous KGQA systems, such as <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.03193">KG-BERT</a>, <a target="_blank" rel="noopener" href="https://aclanthology.org/2021.tacl-1.11.pdf">Kepler</a>, only represent texts with a single language model and may lead to inferior performance, because different language models excel in extracting different levels of information.<br>For example, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.10084">SentenceTransformer</a> excels in extracting word and sentence-level information, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1405.4053">Doc2Vec</a> mainly captures the document-level information.</p>
-<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>In this project, we incorporate multiple pre-trained language models for capturing word, sentence, and document levels of semantics from texts. Our approach can be viewed in the following figure, where we considers various entity representations, such as word, sentence, and document levels of information, and maps them into a joint geometric space using the hypercomplex algebra such as the Quaternion.<br>![](images&#x2F;multi_lm2.png, Fig. 2. Our approach.)</p>
+<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>In this project, we incorporate multiple pre-trained language models for capturing word, sentence, and document levels of semantics from texts. Our approach can be viewed in the following figure, where we considers various entity representations, such as word, sentence, and document levels of information, and maps them into a joint geometric space using the hypercomplex algebra such as the Quaternion.<br><img src="/images/multi_lm2.png"></p>
 <ol>
 <li>We transform a question such as “Where was Danny Pena born?” into a query forming with the corresponding entity and relation in the question, e.g., (Q5220733, P19, ?). The task is to infer the missing answering entity in the query (the correct answering entity is Q621549).</li>
 <li>For the query and candidate answering entities in the KG, we encode word, sentence, and document embeddings of entity descriptions with a variety of pre-trained language models: <strong>Word2Vec, FastText, Doc2Vec, SentenceTransformer</strong>. To simplify, we use the abbreviations <strong>{W, F, D, S}</strong> to denote these language models. </li>
@@ -106,12 +110,12 @@
 <li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8047276">FB15k-237</a> is a subset of the large-scale Freebase KG.</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.10197">YAGO-10</a> is a subset of the large-scale YAGO KG.</li>
 </ol>
-<p>We conducted a KGQA experiment, and the results can be viewed in the following Figure, which shows Question Answering results for both low (D&#x3D;32) and high (D&#x3D;500) dimension of embedding sizes.<br>![](images&#x2F;multi_lm4.png, question answering results.)<br> For each dataset under different dimension sizes, numbers with the blue background are the best results. The category “Ours” includes three variants of our model with different combinations of language models. Specifically, <strong>“W, F, S, D”</strong> in the postfix means <strong>W</strong>ord2Vec, <strong>F</strong>astText, <strong>S</strong>entence Transformer, and <strong>D</strong>oc2Vec. ‘<br>We measure the rank of the correct answering entity among all candidates, just like how we evaluate the search engine! Specifically, we use two ranking-based metrics: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank">MRR</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph_embedding#Hits@K">Hits@K</a>. Intuitively, MRR measures the averaging reciprocal rank of correct predictions, and Hits@K measures the proportion of correct predictions ranking in the top-K positions. <strong>For both metrics, the higher, the better.</strong><br>And here, we can obtain some conclusions from the results:</p>
+<p>We conducted a KGQA experiment, and the results can be viewed in the following Figure, which shows Question Answering results for both low (D&#x3D;32) and high (D&#x3D;500) dimension of embedding sizes.<br><img src="/images/multi_lm4.png"><br> For each dataset under different dimension sizes, numbers with the blue background are the best results. The category “Ours” includes three variants of our model with different combinations of language models. Specifically, <strong>“W, F, S, D”</strong> in the postfix means <strong>W</strong>ord2Vec, <strong>F</strong>astText, <strong>S</strong>entence Transformer, and <strong>D</strong>oc2Vec. ‘<br>We measure the rank of the correct answering entity among all candidates, just like how we evaluate the search engine! Specifically, we use two ranking-based metrics: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank">MRR</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph_embedding#Hits@K">Hits@K</a>. Intuitively, MRR measures the averaging reciprocal rank of correct predictions, and Hits@K measures the proportion of correct predictions ranking in the top-K positions. <strong>For both metrics, the higher, the better.</strong><br>And here, we can obtain some conclusions from the results:</p>
 <ol>
 <li>On smaller datasets such as Nations, the amount of KG information is limited, and incorporating additional textual information becomes more crucial. Thus, models incorporating more language models perform better.</li>
 <li>For multiple text embeddings from language models, modeling their pair-wise interactions is better than just concatenating them into a larger embedding, as models in the category of Baseline.</li>
 </ol>
-<h2 id="Semantic-Clusters-Of-Entity-Embedding"><a href="#Semantic-Clusters-Of-Entity-Embedding" class="headerlink" title="Semantic Clusters Of Entity Embedding"></a>Semantic Clusters Of Entity Embedding</h2><p>We analyze the semantics of learned entity embeddings from our approach. The goal is to determine if semantically similar entities also have similar representations in the learned embedding space. After dimensional reduction, the learned entity embeddings are shown in the following Figure.<br>![](images&#x2F;multi_lm5.png, The visualization of learned entity embeddings from our approach.)<br>In the figure, each cluster in the figure represents a particular topic, each point corresponds to an entity in the dataset, and each red arrow points to the corresponding point of an entity name.<br>We can see that semantically related entities are indeed clustered together in the learned embedding space. For instance, universities and languages are separated into distinct blue and red clusters.<br>This suggests our model can capture meaningful semantic relationships between entities in the KG.</p>
+<h2 id="Semantic-Clusters-Of-Entity-Embedding"><a href="#Semantic-Clusters-Of-Entity-Embedding" class="headerlink" title="Semantic Clusters Of Entity Embedding"></a>Semantic Clusters Of Entity Embedding</h2><p>We analyze the semantics of learned entity embeddings from our approach. The goal is to determine if semantically similar entities also have similar representations in the learned embedding space. After dimensional reduction, the learned entity embeddings are shown in the following Figure.<br><img src="/images/multi_lm5.png"><br>In the figure, each cluster in the figure represents a particular topic, each point corresponds to an entity in the dataset, and each red arrow points to the corresponding point of an entity name.<br>We can see that semantically related entities are indeed clustered together in the learned embedding space. For instance, universities and languages are separated into distinct blue and red clusters.<br>This suggests our model can capture meaningful semantic relationships between entities in the KG.</p>
 <h2 id="Explanation-for-question-answering-processes"><a href="#Explanation-for-question-answering-processes" class="headerlink" title="Explanation for question answering processes"></a>Explanation for question answering processes</h2><p>In this demo, we aim to investigate how our approach leverages sentence-level information by selecting the embedding of important sentences.<br>The figure below is an example of sentence contributions when answering questions, where a sentence with higher rank (smaller number) is more important. The source of the sentence indicates whether a sentence comes from the description of a head or tail entity.<br><img src="/images/multi_lm6.png"></p>
 <ul>
 <li>For the first question, “Which film is created by Mars Callahan?”, the top-ranked sentence comes from the description of the answering entity. It contains the keywords “directed by Mars Callahan,” which refers to the head entity.<br>For the second question, “Whom did Margaret Of Geneva marry?”, the top-1 and top-2 sentences refer to the information in question, “Margaret Of Geneva,” and the answering entity, “Thomas Count Of Savoy.” Notably, the keywords “escorting” and “carried her off” in the top sentence provide information about the relation “marry to.”</li>
@@ -130,15 +134,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2024/03/20/5_Abstractive_Text_Summarization/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 
@@ -175,6 +175,10 @@
       <ul>
         
           <li>
+            <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2024/03/20/5_Abstractive_Text_Summarization/">(no title)</a>
           </li>
         
@@ -188,10 +192,6 @@
         
           <li>
             <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/">(no title)</a>
           </li>
         
       </ul>
