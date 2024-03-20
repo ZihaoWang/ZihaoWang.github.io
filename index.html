@@ -4,15 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Zihao Wang&#39;s Portfolio</title>
+  <title>About Me | Zihao Wang&#39;s Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zihao Wang&#39;s Portfolio">
+  <meta name="description" content="Zihao Wang’s Project PortfolioAbout MeI started my career in machine learning and natural language processing (NLP) in 2015.From 2015 to 2019, I was a full-time machine learning engineer at the Chines">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Me">
 <meta property="og:url" content="https://zihaowang.github.io/index.html">
 <meta property="og:site_name" content="Zihao Wang&#39;s Portfolio">
+<meta property="og:description" content="Zihao Wang’s Project PortfolioAbout MeI started my career in machine learning and natural language processing (NLP) in 2015.From 2015 to 2019, I was a full-time machine learning engineer at the Chines">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zihaowang.github.io/images/home1.jpg">
+<meta property="article:published_time" content="2024-03-17T16:27:25.000Z">
+<meta property="article:modified_time" content="2024-03-20T18:49:03.478Z">
 <meta property="article:author" content="Zihao Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zihaowang.github.io/images/home1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Zihao Wang's Portfolio" type="application/atom+xml">
   
@@ -67,288 +73,73 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-5_Abstractive_Text_Summarization" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/03/20/5_Abstractive_Text_Summarization/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:25:52.073Z" itemprop="datePublished">2024-03-20</time>
+    <a href="/index.html" class="article-date">
+  <time class="dt-published" datetime="2024-03-17T16:27:25.000Z" itemprop="datePublished">2024-03-17</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      About Me
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <style TYPE="text/css">
-code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
-</style>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
-
-
-
-
-<h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p><img src="/images/summ1.png"><br>Our investigation reveals that people may naturally follow some inherent structures when writing abstract summaries.<br>To illustrate this observation, we show examples in figure, which are top story summaries or headlines from CNN&#39;s “Technology” channel. After carefully analyzing the summaries, we can find some common structures, such as “What Happened,” “Who Action What,” etc. For example,</p>
+        <h1 id="Zihao-Wang’s-Project-Portfolio"><a href="#Zihao-Wang’s-Project-Portfolio" class="headerlink" title="Zihao Wang’s Project Portfolio"></a>Zihao Wang’s Project Portfolio</h1><h2 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h2><p>I started my career in machine learning and natural language processing (NLP) in 2015.<br>From 2015 to 2019, I was a full-time machine learning engineer at the Chinese University of Hong Kong. During this period, I collaborated with several leading dot-com companies in different AI projects, which include:</p>
 <ul>
-<li>The summary “Apple sues Qualcomm for nearly 1 billion” can be structuralized as “Who (Apple) Action (sues) What (Qualcomm)”.</li>
-<li>Similarly, the summaries “[Twitter] [ﬁxes] [botched @POTUS account transfer]”, “[Uber] [to pay] [$20 million] for misleading drivers”, and “[Bipartisan bill] aims to [reform] [H-1B visa system]” also follow the structure of “Who Action What”.<br>Intuitively, incorporating the latent structure information of summaries into the abstractive summarization model will improve the quality of the generated summaries.</li>
+<li>A project about <strong>E-commerce recommendation systems and text generation</strong>.</li>
+<li>A project about <strong>text mining</strong> and <strong>automatic text summarization</strong>.</li>
 </ul>
-<h1 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h1><p><img src="/images/summ2.png"><br>As shown in figure, we designed a text-summarization model based on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Seq2seq">Sequence-to-Sequence model</a>, which is a commonlt used framework for text generation.<br>The input is a variable-length sequence $X &#x3D; {x_1, …, x_m}$ representing the source text, the output is also a sequence $Y &#x3D; {y_1, …, y_n}$ representing the generated abstractive summaries, and $<eos>$ is a special token representing the end of a sequence.<br>We also employed <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Variational_autoencoder">Variational Autoencoder</a> to capture the latent structure of texts, such as “Who Action What” or “What Happened” mentioned before.<br>However, the standard VAE is not designed for sequence modeling related tasks. Therefore, we added historical dependencies on the latent variables.<br>As a result, we proposed our <strong>deep recurrent generative decoder (DRGD)</strong> for text summarization.<br>The technical details can be viewed in our paper.</p>
-<h1 id="ROUGE-Evaluation"><a href="#ROUGE-Evaluation" class="headerlink" title="ROUGE Evaluation"></a>ROUGE Evaluation</h1><p><img src="/images/summ3.png"><br>We use <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ROUGE_(metric)">ROUGE</a> score as our evaluation metric. The basic idea of ROUGE is to count the number of overlapping units between generated summaries and the reference summaries, such as overlapped n-grams, word sequences, and word pairs.<br>Here, we report ROUGE-1, ROUGE-2, and ROUGE-L, representing the overlapped 1-gram, 2-gram, and longest common sequences between the generated summary and golden truth.<br>Results from a large-scale dataset of Twitter-like short messages <a target="_blank" rel="noopener" href="https://aclanthology.org/D15-1229/">LCSTS</a> are shown in the above figure, and our model DRGD also achieves the best performance.</p>
-<h1 id="Summary-Case-Analysis"><a href="#Summary-Case-Analysis" class="headerlink" title="Summary Case Analysis"></a>Summary Case Analysis</h1><p><img src="/images/summ4.png"><br>In order to analyze the reasons for improving the performance, we compare the generated summaries by DRGD and the standard decoders <a target="_blank" rel="noopener" href="https://aclanthology.org/N16-1012/">StanD, abstractive summarization with Seq2Seq modeling</a>.<br>The source texts, golden summaries, and generated summaries are shown in the above figure.<br>From the cases, we can observe that DRGD can capture some latent structures consistent with the golden summaries. For example: </p>
+<p>From 2020, I am a Ph.D. student at the <a target="_blank" rel="noopener" href="https://www.ki.uni-stuttgart.de/departments/ac/">Analytic Computing group</a> of the University of Stuttgart, and I was also a full-time researcher working for the <a target="_blank" rel="noopener" href="https://www.servicemeister.org/en/">Service Meister</a> project funded by the Bundesministerium für Wirtschaft und Energie (BMWi). My research interests during this period include: </p>
 <ul>
-<li>Our result for S(1) “Wuhan wins men’s soccer title at Chinese city games” matches the “Who Action What” structure. However, the standard decoder StanD ignores the latent structures and generates some loose sentences, such as the results for S(1) “Results of men’s volleyball at Chinese city games” does not catch the main points.<br>The reason is that the recurrent variational auto-encoders used in our framework have better representation ability and can capture more effective and complicated latent structures from the text.</li>
+<li><strong>Knowledge graph (KG) embeddings</strong>.</li>
+<li><strong>Vector Databases</strong>.</li>
+<li><strong>Knowledge Graph Question answering systems</strong> on KGs and open-source texts using LLMs.</li>
+<li><strong>Retrieval Augmented Generation</strong> on KGs and LLMs.</li>
 </ul>
+<p>You can also find me at <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/zihaowang23/">LinkedIn</a> and <a target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=4zcNt3IAAAAJ">Google Scholar</a>.</p>
+<h2 id="My-Projects"><a href="#My-Projects" class="headerlink" title="My Projects"></a>My Projects</h2><h3 id="1-Knowledge-Graph-Question-Answering-Systems"><a href="#1-Knowledge-Graph-Question-Answering-Systems" class="headerlink" title="1. Knowledge Graph Question Answering Systems"></a>1. Knowledge Graph Question Answering Systems</h3><p><strong>Knowledge Graph Question Answering (KGQA)</strong> is an NLP task that focuses on developing systems capable of answering natural-language questions from humans using knowledge graphs. A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph">knowledge graph</a> (KG) is a structured representation of information, typically entities, relations, and attributes. Below is an illustration of KGQA systems <a target="_blank" rel="noopener" href="https://medium.com/analytics-vidhya/open-domain-question-answering-series-part-3-introduction-to-knowledge-graphs-for-question-5d3f8d78812e">online</a>.”<br><img src="/images/home1.jpg" title="Fig. 1. A sketch diagram of KGQA systems."><br>Real-world KGs are highly incomplete, they may not contain all the information required to answer a given question. Texts, such as entity descriptions, documents, or other textual sources, provide additional context and details that might be missing in the structured KG.<br>Then, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Language_model">Language models</a> play a crucial role in KGQA by providing natural language understanding, semantic representation, and adaptability to integrate texts with KGs.<br>In this project, we incorporate multiple language models for capturing word, sentence, and document levels of semantics from texts.<br>You may find more details at <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/" title="1_Knowledge_Graph_Question_Answering">this page</a>, or view our <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.02743">paper</a> and open-source code on <a target="_blank" rel="noopener" href="https://github.com/ZihaoWang/Hypercomplex-KG-Embedding">GitHub</a>.</p>
+<h3 id="2-Knowledge-Graph-Embedding-with-LLMs"><a href="#2-Knowledge-Graph-Embedding-with-LLMs" class="headerlink" title="2. Knowledge Graph Embedding with LLMs"></a>2. Knowledge Graph Embedding with LLMs</h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph_embedding">knowledge graph embedding</a> is a technique to represent entities and relations from a KG into continuous vector spaces, enabling effective reasoning and predictive tasks.<br>Below is an illustration of knowledge graph embeddings <a target="_blank" rel="noopener" href="https://towardsdatascience.com/knowledge-graph-embeddings-101-2cc1ca5db44f">online</a>, where connected entities are close to each other. For example, two entities “Liverpool” and “City” are close to each other in the 2D vector space. Below is an example of knowledge graph embeddings, where entities and relations are projected into a 2D vecor space.<br>![](&#x2F;image&#x2F;home2.jpg, Fig. 2. An example of knowledge graph embeddings.)<br>Embedding both knowledge graph entities and texts in a shared vector space enables their joint representations, which is beneficial for downstream NLP tasks, such as KGQA system with texts.\n\n<br>In this project, we jointly model the knowledge graph embeddings and text embeddings in the same space with recent LLMs such as GPT3.5 and OpenLLaMA.<br>Specifically, we have developed several methods of using LLMs:</p>
+<ol>
+<li>Directly process texts with LLMs, obtain text embeddings and design models to align text embeddings and knowledge graph embeddings in the same space.</li>
+<li>Design prompt-based methods to obtain text and knowledge graph embeddings with LLMs.</li>
+<li>Transform KGs into LLM-aware inputs and fine-tune LLMs to learn the knowledge graph embeddings, which are automatically aligned with the prior knowledge stored in LLMs.<br>You may find more details at <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/" title="2_Knowledge_Graph_Embedding_with_LLMs">this page</a>.</li>
+</ol>
+<h3 id="3-Model-Uncommon-Concepts"><a href="#3-Model-Uncommon-Concepts" class="headerlink" title="3. Model Uncommon Concepts"></a>3. Model Uncommon Concepts</h3><p>Many concepts in vector databases and knowledge graphs, such as entities, nouns, and relations, are uncommon in daily life.<br>Modeling uncommon concepts is crucial for several reasons:</p>
+<ol>
+<li>Common concepts are often well-represented in vector databases or knowledge graphs. However, to achieve comprehensive coverage, it is essential to model and include information about uncommon ones.</li>
+<li>Uncommon concepts often encapsulate specialized information, such as a specific medicine or tool.<br>In this project, we focus on modeling embeddings for uncommon concepts in KGs.<br>You may find more details at <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/" title="3_Modeling_Uncommon_Concepts">this page</a>, or view our <a target="_blank" rel="noopener" href="https://aclanthology.org/D19-1024/">paper</a> and open-source code on <a target="_blank" rel="noopener" href="https://github.com/ZihaoWang/Few-shot-KGC">GitHub</a>.</li>
+</ol>
+<h3 id="4-Recommendation-Systems-with-Text-Generation"><a href="#4-Recommendation-Systems-with-Text-Generation" class="headerlink" title="4. Recommendation Systems with Text Generation"></a>4. Recommendation Systems with Text Generation</h3><p>A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Recommender_system">recommendation system</a> is a software application that provides personalized suggestions or advice to users. It analyzes user preferences, behaviors, or past interactions to predict and offer items, services, or content that users might find interesting or relevant. Below is an illustration of a film recommendation system <a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/recommendation-system/">online</a>. If two users have similar tastes of films, the system will recommend the same film for them.<br>![](&#x2F;image&#x2F;home4.png, Fig. 4. An example of recommendation systems.)<br>In this project, we designed two recommendation systems.</p>
+<ol>
+<li>In the first recommendation system, we aim to develop a model that conducts the rating prediction and <strong>generates tips based on the predicted ratings.</strong></li>
+<li>In the second recommendation system, we also <strong>consider users’ personas such as wording and style of writing tips</strong>, and we find that the quality of tips generation can be improved if the model considers the persona.<br>You may find more details at <a href="/2024/03/20/4_Recommendation_Systems_with_Text_Generation/" title="4_Recommendation_Systems_with_Text_Generation">this page</a>, or view our papers on <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1708.00154">the first recommendation system</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.02156">the second recommendation system</a>.</li>
+</ol>
+<h3 id="5-Abstractive-Text-Summarization-n-n"><a href="#5-Abstractive-Text-Summarization-n-n" class="headerlink" title="5. Abstractive Text Summarization\n\n"></a>5. Abstractive Text Summarization\n\n</h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Automatic_summarization">Automatic summarization</a> automatically generates a summary that retains the most important content of the original text document.<br>Among various methodologies, we explore <strong>abstractive summarization</strong> that reformulates the original text by generating new sentences capturing the text’s main ideas. This method is challenging as it requires understanding the context and generating content that may not exist verbatim in the original text. Below is an illustration of abstractive text summarization <a target="_blank" rel="noopener" href="https://turbolab.in/types-of-text-summarization-extractive-and-abstractive-summarization-basics/">online</a>, where new texts different than origin texts are generated in the summarization.<br>![](&#x2F;image&#x2F;home5.jpg, A illustration of abstractive text summarization.)<br>In this project, we propose an abstractive summarization method that incorporates the textual structure of summaries.<br>You may find more details at <a href="/2024/03/20/5_Abstractive_Text_Summarization/" title="5_Abstractive_Text_Summarization">this page</a>, or view our <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1708.00625">paper</a>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zihaowang.github.io/2024/03/20/5_Abstractive_Text_Summarization/" data-id="clu05mpzv0004v2f7fg2u3szo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://zihaowang.github.io/index.html" data-id="clu07rsqk0000ejf7crzuhcvk" data-title="About Me" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
     </footer>
   </div>
   
-</article>
-
-
-
-  
-    <article id="post-3_Modeling_Uncommon_Concepts" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/20/3_Modeling_Uncommon_Concepts/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:24:08.402Z" itemprop="datePublished">2024-03-20</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <style TYPE="text/css">
-code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
-</style>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
-
-
-<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><img src="/images/long_tail1.png"><br>When analyzing real-world KGs, we find that when a relation is uncommon, the entities within its facts are also more uncommon, which can be viewed in the above figure, which shows a histogram about relation frequencies and the corresponding proportions of uncommon entities in DBpedia.<br>Specifically, an entity is treated as uncommon when it appears less or equal to 5 times in all triplets of the KG. From figure, it is obvious that uncommon relations involve more uncommon entities than frequent relations. Therefore, uncommon relations and uncommon entities should be tackled together as two sides of a coin.<br>Uncommon entities and relations are important because they compose many facts in KGs. However, as with other data-imbalanced problems, modeling uncommon entities and relations is more difficult than common ones.</p>
-<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>To model the uncommon entities and relations in the KG, we proposed a framework consisting of three modules:</p>
-<ol>
-<li>A <strong>description encoder</strong> that takes triple descriptions as the input and produces corresponding text embeddings.</li>
-<li>A <strong>triple generator</strong> that takes text embeddings as input and generates extra triple embeddings to relieve the data sparsity of uncommon entities and relations.</li>
-<li>A <strong>meta-learner</strong> that takes all available triple embeddings as inputs and learns a meta-model. This meta-model can be easily adapted to fit uncommon relations and entities.</li>
-</ol>
-<h2 id="Description-Encoder"><a href="#Description-Encoder" class="headerlink" title="Description Encoder"></a>Description Encoder</h2><p><img src="/images/long_tail2.png"><br>The working process of the description encoder involves three steps, which can be viewed in the above figure.<br>In the first step, a relation description $d_r$ is encoded into a relation embedding $o_r$.<br>In the second step, the relation embedding $o_r$ is used to compute corresponding entity traits. An entity trait represents the common characteristics of entities related to a special relation.<br>In a sense, a trait is like an entity type but is more flexible. For each relation $r$, we compute two entity traits $T_{rh}$ and $T_{rt}$, for all the head entities and tail entities belonging to the relation $r$.<br>In the third step, both entity traits and entity descriptions are used to compute the entity embeddings $o_h$ and $o_t$, for the head entity $h$ and the tail entity $t$.<br>The technical details can be viewed in our paper.</p>
-<h2 id="Triple-Generator"><a href="#Triple-Generator" class="headerlink" title="Triple Generator"></a>Triple Generator</h2><p><img src="/images/long_tail3.png"><br>We call our triple generator Triple Conditional Variational AutoEncoder (TCVAE) based on the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Variational_autoencoder">Conditional Variational Autoencoder (CVAE)</a>.<br>During training, the TCVAE takes the triple embedding $(o_h, o_r, o_t)$ as the input, learns its semantics, and generates the reconstruction triple embedding $(g_h, g_r, g_t)$.<br>During testing, given a specific relation embedding $o_r$ as the condition, the TCVAE can generate high-quality triple embeddings $(g_h, g_r, g_t)$ related to the relation $r$.<br>The technical details can be viewed in our paper.</p>
-<h2 id="Meta-Learner"><a href="#Meta-Learner" class="headerlink" title="Meta-Learner"></a>Meta-Learner</h2><p>In order to ensure that both the description encoder and triple generator have a good generalization ability when handling uncommon relations and entities, we designed a meta-learner during the training process.<br>Specifically, we employ <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.02999">Reptile</a>, a variant of <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.03400">Model-Agnostic Meta-Learning</a>. The technical details can be viewed in our paper.</p>
-<h2 id="Link-Prediction-Experiment"><a href="#Link-Prediction-Experiment" class="headerlink" title="Link Prediction Experiment"></a>Link Prediction Experiment</h2><p><img src="/images/long_tail5.png"><br>In the experiment, we conduct link prediction that predicts the missing entity in incomplete triples, and the results can be viewed in figure, where bold numbers indicate best results over different models on the same metric.<br>Here, we explain several key points in figure, and more details can be viewed in our paper.</p>
-<ol>
-<li>In order to focus on the uncommon relations and entities, we only focus on relations occurring only once in the training set. These relations are also associated with various uncommon entities.</li>
-<li>The category “Ours” refers to our full framework, and we also designed two ablation variants by removing the entity traits and TCVAE.</li>
-<li>We measure the rank of the correct missing entity among all candidates, just like how we evaluate the search engine! Specifically, we use two ranking-based metrics: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank">MRR</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph_embedding#Hits@K">Hits@K</a>. Intuitively, MRR measures the averaging reciprocal rank of correct predictions, and Hits@K measures the proportion of correct predictions ranking in the top-K positions. <strong>For both metrics, the higher, the better.</strong></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zihaowang.github.io/2024/03/20/3_Modeling_Uncommon_Concepts/" data-id="clu05mpzt0002v2f7h5tw4590" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-4_Recommendation_Systems_with_Text_Generation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/20/4_Recommendation_Systems_with_Text_Generation/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:22:36.998Z" itemprop="datePublished">2024-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Many recommendation systems are based on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative Filtering</a>. It assumes that if user A has preferences similar to user B on certain items, then A is likely to have preferences similar to B on other items. For example:</p>
-<ul>
-<li>Alice has watched and enjoyed movies like “Inception,” “Interstellar,” and “Shutter Island.”\n’</li>
-<li>Bob has a similar taste and has also enjoyed these movies.\n’</li>
-<li>Now, if Alice has not watched “The Prestige” (a movie highly rated by Bob), the system might recommend “The Prestige” to Alice based on the shared preferences with Bob.’)<br>Some recommendation systems perform collaborative filtering only with users’ historical rating scores of items; other recommendation systems also consider text information. Our proposed recommendation systems belong to the second category.</li>
-</ul>
-<h1 id="Recommendation-System-1-Rating-Prediction-with-Tips-Generation"><a href="#Recommendation-System-1-Rating-Prediction-with-Tips-Generation" class="headerlink" title="Recommendation System 1: Rating Prediction with Tips Generation"></a>Recommendation System 1: Rating Prediction with Tips Generation</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><img src="/images/rec1.png"><br>Recently, some E-commerce sites, such as Yelp, launched a new interaction box called <strong>Tips</strong> on their mobile platforms.<br>As shown in figure, the left column is a review from the user “Monica H.” and tips from several other users are shown on the right column. In the review text, Monica first introduced the restaurant in general and then narrated her dining experience. In the tips text, users expressed their experience and feelings using short texts, such as “The risotto was excellent. Amazing service.”. They also provide some suggestions to other people directly in several words, such as “You have to make reservations much in advance.” In contrast to item specifications and user reviews, tips have several characteristics:</p>
-<ol>
-<li>Tips are typically single-topic nuggets of information and shorter than reviews, with an average length of about 10 words.</li>
-<li>Tips can express user experience, feelings, and suggestions directly.</li>
-<li>Tips can give other people quick insights, saving the time of reading long reviews.<br>In essence, writing tips and giving a numerical rating are two facets of a user’s product assessment action, expressing the user experience and feelings. Jointly modeling these two facets helps design a better recommendation system.</li>
-</ol>
-<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>The goal of recommendation, similar to collaborative filtering, is to predict a rating given by a user and an item. Additionally, in our proposed task, our model generates abstractive tips in a concise sentence. At the operational stage, only a user and an item are given. There are no given review texts and no tips texts.<br><img src="/images/rec2.png"><br>As shown in figure, our framework contains two major components: <strong>neural rating regression</strong> on the left and <strong>abstractive tips generation</strong> on the right. There are two crucial latent variables : user latent factors $U$ and item latent factors $V$.<br>For neural rating regression, given the user latent factor U and the item latent factor V, a multi-layer network based regression model is employed to project U and V to a rating score.<br>Generating abstractive tips only based on user latent factors and item latent factors is a challenging task. At the testing stage, the input only consists of a user and an item, but without any text information. After obtaining the user latent factor U and the item latent factor V, we should design a strategy to “translate” these two latent vectors into a fluent sequence of words.<br>We employ the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Seq2seq">Sequence-to-Sequence model</a> for tips generation, given the predicted rating score and review information at the training stage.<br>Finally, we integrate the rating prediction and the abstractive tips generation into a unified multi-task learning framework. The technical details can be viewed in the paper.</p>
-<h2 id="Rating-Prediction"><a href="#Rating-Prediction" class="headerlink" title="Rating Prediction"></a>Rating Prediction</h2><p>Our experiments use four standard benchmark datasets from different domains to evaluate our model. There are three datasets from Amazon: Books, Electronics, and Movies &amp; TV. We regard the field “summary” as tips, and the number of tips texts is the same as the number of reviews.<br>Another dataset is from Yelp Challenge 2016. It is a large-scale dataset consisting of restaurant reviews and tips.</p>
-<p><img src="/images/rec3.png%22"><br>For the evaluation of rating prediction in the above figure, we employ two metrics: Mean Absolute Error (MAE) and Root Mean Square Error (RMSE), where both metrics measure the distance between the predicted and correct ratings.<br>The rating prediction results of our framework NRT and comparative models on all datasets are given in figure. Our model consistently outperforms all comparative methods under MAE and RMSE metrics on all datasets.</p>
-<h2 id="Abstract-Tips-Generation"><a href="#Abstract-Tips-Generation" class="headerlink" title="Abstract Tips Generation"></a>Abstract Tips Generation</h2><p><img src="/images/rec4.png"><br>To analyze the linguistic quality and the sentiment correlation between the predicted ratings and the generated tips, we selected some real cases from different domains. The results are listed in figure, where examples of the predicted rating scores and generated tips. In each group, the first line shows the generated tip and the second line shows the golden truth. Although our model generates tips abstractly, tips’ linguistic quality is quite good.</p>
-<h1 id="Recommendation-System-2-Persona-aware-Tips-Generation"><a href="#Recommendation-System-2-Persona-aware-Tips-Generation" class="headerlink" title="Recommendation System 2: Persona-aware Tips Generation"></a>Recommendation System 2: Persona-aware Tips Generation</h1><h2 id="Motivation-1"><a href="#Motivation-1" class="headerlink" title="Motivation"></a>Motivation</h2><p>Based on the previous framework of tips generation, we investigate another dimension, namely user persona, which is plausibly helpful for the task of tips generation. Here, the term “persona” denotes the characteristics of the written text by users, such as wording and style.<br><img src="/images/rec_personal1.png"><br>The above figure-a shows some tips for a shower radio from different users. These tips clearly show different styles, although they all have the same ratings.</p>
-<ul>
-<li>Some users (e.g., 1, 4, and 5) prefer short sentences and direct wordings such as “great,” “easy,” and “excellent” to describe the product quality and their experience directly.</li>
-<li>On the other hand, some users (e.g., 2, 3, and 6) share their experiences indirectly by talking about some facts in longer sentences.<br>Therefore, different users have different “persona” styles when writing tips.<br>Besides, the above figure-b shows a few tips with different ratings from the same user for different items, we can observe that the user prefers short sentences, and he has his style (i.e., preferred vocabulary) for writing tips of different sentiments&#x2F;ratings (e.g., “perfect” and “excellent” for high rating tips, and “piece of crap” for low rating tips).<br>Intuitively, the quality of abstractive tip generation can be improved if the model considers the user persona information when conducting the text generation.</li>
-</ul>
-<h2 id="Our-Approach-1"><a href="#Our-Approach-1" class="headerlink" title="Our Approach"></a>Our Approach</h2><p><img src="/images/rec_personal2.png"><br>This approach extends the previous one depicted in the above figure with the persona modeling.<br>As shown in figure, our framework contains two significant modules: <strong>persona modeling</strong> on the left and <strong>abstractive tips generation</strong> on the right. As the module for tips generation is similar to before, we mainly focus on the module for modeling persona.<br>For modeling persona, our framework leverages the tips and reviews from each user or written by multiple users for the same item.<br>The purpose of persona modeling is that when generating tips for a user U, the model will also consider tips from other users with similar interests to U since they will disclose more item characteristics. We model these similar interests from users’ history reviews by extracting latent topics with a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Variational_autoencoder">Variational Autoencoder</a>.<br>We also designed an external persona memory M to store the persona-related words for the current user and item, which will be used in abstractive tips generation.<br>The technical details can be viewed in our paper.</p>
-<h2 id="Rating-Prediction-1"><a href="#Rating-Prediction-1" class="headerlink" title="Rating Prediction"></a>Rating Prediction</h2><p><img src="/images/rec_personal3.png"><br>As before, we conduct rating prediction to evaluate the recommendation performance, and the rating prediction results are given in the above figure.<br>Our Personal-aware system (PATG) outperforms our previously designed model (NRT) without considering persona.</p>
-<h2 id="Rating-Controlled-Tips-Generation"><a href="#Rating-Controlled-Tips-Generation" class="headerlink" title="Rating Controlled Tips Generation"></a>Rating Controlled Tips Generation</h2><p><img src="/images/rec_personal4.png%22"><br>The main problem setting of this work is to generate persona-aware tips. In order to demonstrate the quality of the tips we generated, we selected some real cases generated by our PATG from different domains for some users and items. The results are listed in the above figure.<br>In the figure, examples of the predicted rating scores and generated tips. In each group, the first line shows the generated tip and the second line shows the golden truth.<br>Although our model generates tips abstractly, tips’ linguistic quality is quite good. The personal properties of the generated tips match the ground truth well.</p>
-<ul>
-<li>In the first case, the generated tip is, “This is a great hat for the price.” The ground truth is, “Thanks, nice quality, excellent price, great deal.” Both sentences contain the terms “great” and “price.”</li>
-<li>In the third case, the generated tips and the ground truth overlap with the terms “replace my old,” and “processor.”<br>Interestingly, sometimes, the framework can select synonyms when generating tips. For instance, the generated tips of the fourth case contain the terms “bought” and “for my husband.” The ground truth contains “purchased” and “for a male.”</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zihaowang.github.io/2024/03/20/4_Recommendation_Systems_with_Text_Generation/" data-id="clu05mpzu0003v2f76c60gs9v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2_Knowledge_Graph_Embedding_with_LLMs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:11:34.519Z" itemprop="datePublished">2024-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><img src="/images/g2cn1.png"><br>In the real world, the text associated with an entity may have multiple segments, each carrying different information. For example, consider the multi-segment text description from the entity “Python” in the above figure. A model should extract information from the third segment for “Who invented the Python language?”. For the question “Why Python is a popular language?”, the model should focus on the first and the second segments.<br>Therefore, when encoding multi-segment texts into embeddings, we should jointly consider these segments and model their interactions.</p>
-<h2 id="Approach-1-Embeddings-from-LLMs"><a href="#Approach-1-Embeddings-from-LLMs" class="headerlink" title="Approach 1: Embeddings from LLMs"></a>Approach 1: Embeddings from LLMs</h2><p>We present G2CN, an extension of graph convolutional networks (GCNs), as the knowledge graph embedding method.<br>As our previous work, “Question Answering with KG and language models,” G2CN uses hypercomplex algebra to integrate multiple embeddings from text segments, where we extract these embeddings from LLMs, and each embedding corresponds to a segment. Upon our G2CN, we employ different networks for diverse downstream tasks:</p>
-<ol>
-<li>Node classification (NC) classifies the label of entities. In our case, the label is the type of the entity, e.g., the label “Python” is “programming language.</li>
-<li>Link prediction (LP) judges if a connection exists between two entities in the knowledge graph. For example, “Python” and “C++” have a connection, but “Python” and “Barack Obama” do not.</li>
-</ol>
-<p>We conduct experiments on two citation KGs, PubmedText and ArxivText, where papers are nodes and references are edges. For both datasets, we collect each paper’s title, abstract, keywords, and introduction as multiple segments of textual features and the category of papers as labels.<br>For evaluation metrics, we use the micro-F1 score for node classification, the area under the Receiver Operating Characteristic (ROC) curve, and the Average Precision (AP) score for link prediction. To ensure a fair comparison, we concatenate all text embeddings of each entity from the LLM for baselines without using hypercomplex algebras.<br><img src="/images/g2cn2.png"><br>From figure above, we demonstrate the NC and LP results using embeddings from the GPT3.5. Our G2CN demonstrates superior performance to other baselines on both tasks, achieving the best results across 5 of the 6 metrics. Using multiple hypercomplex geometric spaces proves beneficial.</p>
-<h2 id="Approach-2-Prompt-based-methods-with-LLMs"><a href="#Approach-2-Prompt-based-methods-with-LLMs" class="headerlink" title="Approach 2: Prompt-based methods with LLMs"></a>Approach 2: Prompt-based methods with LLMs</h2><p>We also explore a prompt-based method with GPT3.5; the procedure is described as follows:</p>
-<ol>
-<li>We use multiple text segments of each entity as contexts of the prompt, and contexts are further split into trunks of 1024 words to fit the need of GPT3.5 API.</li>
-<li>We construct a query prompt for each node in the test set with the context mentioned before, and the set of possible labels serves as the candidate targets. Specifically, we use the following prompts for the NC and LP tasks:<br>NC: You are a helpful AI assistant. Use the following pieces of context to predict the category. The task is to look at the contexts and to predict the category, which is a numerical value. If the category can not be predicted, then provide “unknown”.<br>LP: You are a helpful AI assistant. Use the following pieces of context to predict the Label: 1 or 0 based on “label: has connection” between two papers. The task is to look at the contexts and to predict the category, which should be a numerical value (0 or 1). 1 means a connection, and 0 means no connection. If the category can not be predicted, then provide “-1”.<br><img src="/images/g2cn3.png"><br>The results are shown in figure, where we demonstrate the NC and LP results using a prompt-based method with the GPT3.5. By comparing the results of the prompt-based method with other GNN-based models using GPT3.5 embeddings, we observe that the performance of the prompt-based method is inferior to other baselines and our model. This is because the prompt-based method cannot sufficiently utilize the interaction between multiple text segments of each entity, and the graph structure of the citation networks is ignored.</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zihaowang.github.io/2024/03/20/2_Knowledge_Graph_Embedding_with_LLMs/" data-id="clu05mpzs0001v2f703g8dfc0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-1_Knowledge_Graph_Question_Answering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/20/1_Knowledge_Graph_Question_Answering/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:07:48.827Z" itemprop="datePublished">2024-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Knowledge graphs (KGs) are often incomplete and lack certain facts or relations. Knowledge Graph Question Answering (KGQA) systems face challenges when answering questions based on incomplete information. Missing facts can lead to inaccuracies or limitations in the generated answers.<br>When answering questions, this incomplete can be mitigated by providing additional textual information about entities or relations.<br>![](&#x2F;images&#x2F;multi_lm1.png, Fig. 1. A part of Wikidata.)<br>Above is a part of Wikidata. We assume that the purple dashed edge (Q5220733, P19, Q621549) is unknown because the entity “Q5220733” is only connected to one other entity, “Q193592”. Although facts cannot help bridge the gap between “Q5220733” and “Q621549”, additional entity descriptions from Wikipedia could be used to provide a solution.</p>
-<p>Now, the question is how to encode entity descriptions into embeddings, and recent language models have become a feasible choice.<br>Previous KGQA systems, such as <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.03193">KG-BERT</a>, <a target="_blank" rel="noopener" href="https://aclanthology.org/2021.tacl-1.11.pdf">Kepler</a>, only represent texts with a single language model and may lead to inferior performance, because different language models excel in extracting different levels of information.<br>For example, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.10084">SentenceTransformer</a> excels in extracting word and sentence-level information, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1405.4053">Doc2Vec</a> mainly captures the document-level information.</p>
-<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>In this project, we incorporate multiple pre-trained language models for capturing word, sentence, and document levels of semantics from texts. Our approach can be viewed in the following figure, where we considers various entity representations, such as word, sentence, and document levels of information, and maps them into a joint geometric space using the hypercomplex algebra such as the Quaternion.<br>![](images&#x2F;multi_lm2.png, Fig. 2. Our approach.)</p>
-<ol>
-<li>We transform a question such as “Where was Danny Pena born?” into a query forming with the corresponding entity and relation in the question, e.g., (Q5220733, P19, ?). The task is to infer the missing answering entity in the query (the correct answering entity is Q621549).</li>
-<li>For the query and candidate answering entities in the KG, we encode word, sentence, and document embeddings of entity descriptions with a variety of pre-trained language models: <strong>Word2Vec, FastText, Doc2Vec, SentenceTransformer</strong>. To simplify, we use the abbreviations <strong>{W, F, D, S}</strong> to denote these language models. </li>
-<li>For each query and candidate answering entity, we integrate its multiple embeddings using hypercomplex algebra, which measures the pair-wise interaction between any two embeddings.</li>
-<li>Finally, we calculate each candidate answering entity’s distance to the query in the hyperbolic space.<br>Based on different language models and ways of computing distances between the query and answering entities, we proposed three variants of our model:</li>
-</ol>
-<ul>
-<li>Robin: uses <strong>one</strong> language model, and the distance is computed using <strong>rotation and translation</strong> in the hypercomplex space.</li>
-<li>Lion: uses <strong>two</strong> language models, and the distance is also computed using <strong>rotation and translations</strong> like Robin.</li>
-<li>Tetra: uses <strong>at most three</strong> language models, and the distance is computed <strong>only using rotation</strong>.</li>
-</ul>
-<h2 id="Question-Answering-Experiment"><a href="#Question-Answering-Experiment" class="headerlink" title="Question Answering Experiment"></a>Question Answering Experiment</h2><p>We evaluate our approach on two domain-specific KGQA datasets: Nations and Diabetes, and two commonsense KGQA datasets: FB15k-237, and YAGO-10:</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://homes.cs.washington.edu/~pedrod/papers/mlc07.pdf">Nations</a> is a small-scale KG that consists of relation between countries.</li>
-<li><a target="_blank" rel="noopener" href="https://academic.oup.com/bioinformatics/article/38/8/2235/6527626">Diabetes</a> is a medical KG specified for various diabetes.</li>
-<li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8047276">FB15k-237</a> is a subset of the large-scale Freebase KG.</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.10197">YAGO-10</a> is a subset of the large-scale YAGO KG.</li>
-</ol>
-<p>We conducted a KGQA experiment, and the results can be viewed in the following Figure, which shows Question Answering results for both low (D&#x3D;32) and high (D&#x3D;500) dimension of embedding sizes.<br>![](images&#x2F;multi_lm4.png, question answering results.)<br> For each dataset under different dimension sizes, numbers with the blue background are the best results. The category “Ours” includes three variants of our model with different combinations of language models. Specifically, <strong>“W, F, S, D”</strong> in the postfix means <strong>W</strong>ord2Vec, <strong>F</strong>astText, <strong>S</strong>entence Transformer, and <strong>D</strong>oc2Vec. ‘<br>We measure the rank of the correct answering entity among all candidates, just like how we evaluate the search engine! Specifically, we use two ranking-based metrics: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank">MRR</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph_embedding#Hits@K">Hits@K</a>. Intuitively, MRR measures the averaging reciprocal rank of correct predictions, and Hits@K measures the proportion of correct predictions ranking in the top-K positions. <strong>For both metrics, the higher, the better.</strong><br>And here, we can obtain some conclusions from the results:</p>
-<ol>
-<li>On smaller datasets such as Nations, the amount of KG information is limited, and incorporating additional textual information becomes more crucial. Thus, models incorporating more language models perform better.</li>
-<li>For multiple text embeddings from language models, modeling their pair-wise interactions is better than just concatenating them into a larger embedding, as models in the category of Baseline.</li>
-</ol>
-<h2 id="Semantic-Clusters-Of-Entity-Embedding"><a href="#Semantic-Clusters-Of-Entity-Embedding" class="headerlink" title="Semantic Clusters Of Entity Embedding"></a>Semantic Clusters Of Entity Embedding</h2><p>We analyze the semantics of learned entity embeddings from our approach. The goal is to determine if semantically similar entities also have similar representations in the learned embedding space. After dimensional reduction, the learned entity embeddings are shown in the following Figure.<br>![](images&#x2F;multi_lm5.png, The visualization of learned entity embeddings from our approach.)<br>In the figure, each cluster in the figure represents a particular topic, each point corresponds to an entity in the dataset, and each red arrow points to the corresponding point of an entity name.<br>We can see that semantically related entities are indeed clustered together in the learned embedding space. For instance, universities and languages are separated into distinct blue and red clusters.<br>This suggests our model can capture meaningful semantic relationships between entities in the KG.</p>
-<h2 id="Explanation-for-question-answering-processes"><a href="#Explanation-for-question-answering-processes" class="headerlink" title="Explanation for question answering processes"></a>Explanation for question answering processes</h2><p>In this demo, we aim to investigate how our approach leverages sentence-level information by selecting the embedding of important sentences.<br>The figure below is an example of sentence contributions when answering questions, where a sentence with higher rank (smaller number) is more important. The source of the sentence indicates whether a sentence comes from the description of a head or tail entity.<br><img src="/images/multi_lm6.png"></p>
-<ul>
-<li>For the first question, “Which film is created by Mars Callahan?”, the top-ranked sentence comes from the description of the answering entity. It contains the keywords “directed by Mars Callahan,” which refers to the head entity.<br>For the second question, “Whom did Margaret Of Geneva marry?”, the top-1 and top-2 sentences refer to the information in question, “Margaret Of Geneva,” and the answering entity, “Thomas Count Of Savoy.” Notably, the keywords “escorting” and “carried her off” in the top sentence provide information about the relation “marry to.”</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zihaowang.github.io/2024/03/20/1_Knowledge_Graph_Question_Answering/" data-id="clu05mpzl0000v2f72a197zik" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
