@@ -4,23 +4,24 @@
   <meta charset="utf-8">
   
   
-  <title>Zihao Wang&#39;s Portfolio</title>
+  <title>Knowledge Graph Embeddings with LLMs | Zihao Wang&#39;s Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="MotivationIn the real world, the text associated with an entity may have multiple segments, each carrying different information. For example, consider the multi-segment text description from the entit">
+  <meta name="description" content="knowledge graph embedding is a technique to represent entities and relations from a KG into continuous vector spaces, enabling effective reasoning and predictive tasks.Below is an illustration of know">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zihao Wang&#39;s Portfolio">
-<meta property="og:url" content="https://zihaowang.github.io/2024/03/20/knowledge-graph-embedding-with-LLMs/index.html">
+<meta property="og:title" content="Knowledge Graph Embeddings with LLMs">
+<meta property="og:url" content="https://zihaowang.github.io/2024/03/21/knowledge-graph-embedding-with-LLMs/index.html">
 <meta property="og:site_name" content="Zihao Wang&#39;s Portfolio">
-<meta property="og:description" content="MotivationIn the real world, the text associated with an entity may have multiple segments, each carrying different information. For example, consider the multi-segment text description from the entit">
+<meta property="og:description" content="knowledge graph embedding is a technique to represent entities and relations from a KG into continuous vector spaces, enabling effective reasoning and predictive tasks.Below is an illustration of know">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zihaowang.github.io/images/home2.jpg">
 <meta property="og:image" content="https://zihaowang.github.io/images/g2cn1.png">
 <meta property="og:image" content="https://zihaowang.github.io/images/g2cn2.png">
 <meta property="og:image" content="https://zihaowang.github.io/images/g2cn3.png">
-<meta property="article:published_time" content="2024-03-20T19:49:59.327Z">
-<meta property="article:modified_time" content="2024-03-20T19:49:59.327Z">
+<meta property="article:published_time" content="2024-03-21T14:16:32.271Z">
+<meta property="article:modified_time" content="2024-03-21T14:16:32.271Z">
 <meta property="article:author" content="Zihao Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zihaowang.github.io/images/g2cn1.png">
+<meta name="twitter:image" content="https://zihaowang.github.io/images/home2.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Zihao Wang's Portfolio" type="application/atom+xml">
   
@@ -77,17 +78,33 @@
       <div class="outer">
         <section id="main"><article id="post-knowledge-graph-embedding-with-LLMs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/03/20/knowledge-graph-embedding-with-LLMs/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:49:59.327Z" itemprop="datePublished">2024-03-20</time>
+    <a href="/2024/03/21/knowledge-graph-embedding-with-LLMs/" class="article-date">
+  <time class="dt-published" datetime="2024-03-21T14:16:32.271Z" itemprop="datePublished">2024-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Knowledge Graph Embeddings with LLMs
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><img src="/images/g2cn1.png"><br>In the real world, the text associated with an entity may have multiple segments, each carrying different information. For example, consider the multi-segment text description from the entity “Python” in the above figure. A model should extract information from the third segment for “Who invented the Python language?”. For the question “Why Python is a popular language?”, the model should focus on the first and the second segments.<br>Therefore, when encoding multi-segment texts into embeddings, we should jointly consider these segments and model their interactions.</p>
+        <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Knowledge_graph_embedding">knowledge graph embedding</a> is a technique to represent entities and relations from a KG into continuous vector spaces, enabling effective reasoning and predictive tasks.<br>Below is an illustration of knowledge graph embeddings <a target="_blank" rel="noopener" href="https://towardsdatascience.com/knowledge-graph-embeddings-101-2cc1ca5db44f">online</a>, where connected entities are close to each other. For example, two entities “Liverpool” and “City” are close to each other in the 2D vector space. Below is an example of knowledge graph embeddings, where entities and relations are projected into a 2D vecor space.<br><img src="/images/home2.jpg"><br>Embedding both knowledge graph entities and texts in a shared vector space enables their joint representations, which is beneficial for downstream NLP tasks, such as KGQA system with texts.\n\n<br>In this project, we jointly model the knowledge graph embeddings and text embeddings in the same space with recent LLMs such as GPT3.5 and OpenLLaMA.<br>Specifically, we have developed several methods of using LLMs:</p>
+<ol>
+<li>Directly process texts with LLMs, obtain text embeddings and design models to align text embeddings and knowledge graph embeddings in the same space.</li>
+<li>Design prompt-based methods to obtain text and knowledge graph embeddings with LLMs.</li>
+<li>Transform KGs into LLM-aware inputs and fine-tune LLMs to learn the knowledge graph embeddings, which are automatically aligned with the prior knowledge stored in LLMs.</li>
+</ol>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><img src="/images/g2cn1.png"><br>In the real world, the text associated with an entity may have multiple segments, each carrying different information. For example, consider the multi-segment text description from the entity “Python” in the above figure. A model should extract information from the third segment for “Who invented the Python language?”. For the question “Why Python is a popular language?”, the model should focus on the first and the second segments.<br>Therefore, when encoding multi-segment texts into embeddings, we should jointly consider these segments and model their interactions.</p>
 <h2 id="Approach-1-Embeddings-from-LLMs"><a href="#Approach-1-Embeddings-from-LLMs" class="headerlink" title="Approach 1: Embeddings from LLMs"></a>Approach 1: Embeddings from LLMs</h2><p>We present G2CN, an extension of graph convolutional networks (GCNs), as the knowledge graph embedding method.<br>As our previous work, “Question Answering with KG and language models,” G2CN uses hypercomplex algebra to integrate multiple embeddings from text segments, where we extract these embeddings from LLMs, and each embedding corresponds to a segment. Upon our G2CN, we employ different networks for diverse downstream tasks:</p>
 <ol>
 <li>Node classification (NC) classifies the label of entities. In our case, the label is the type of the entity, e.g., the label “Python” is “programming language.</li>
@@ -103,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zihaowang.github.io/2024/03/20/knowledge-graph-embedding-with-LLMs/" data-id="clu083cow0001k1f7gozm2uca" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://zihaowang.github.io/2024/03/21/knowledge-graph-embedding-with-LLMs/" data-id="clu083cow0001k1f7gozm2uca" data-title="Knowledge Graph Embeddings with LLMs" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -113,10 +130,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2024/03/21/knowledge-graph-question-answering/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Knowledge Graph Question Answering Systems
+        
+      </div>
+    </a>
   
-    <a href="/2024/03/20/knowledge-graph-question-answering/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2024/03/21/recommendation-systems/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">Automatic Text Summarization</div>
     </a>
   
 </nav>
@@ -154,23 +180,23 @@
       <ul>
         
           <li>
-            <a href="/2024/03/20/knowledge-graph-embedding-with-LLMs/">(no title)</a>
+            <a href="/2024/03/21/modeling-uncommon-knowledge/">Uncommon Knowledge in Vector Databases</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/knowledge-graph-question-answering/">(no title)</a>
+            <a href="/2024/03/21/knowledge-graph-question-answering/">Knowledge Graph Question Answering Systems</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/abstractive-text-summarization/">(no title)</a>
+            <a href="/2024/03/21/knowledge-graph-embedding-with-LLMs/">Knowledge Graph Embeddings with LLMs</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/modeling-uncommon-knowledge/">(no title)</a>
+            <a href="/2024/03/21/recommendation-systems/">Automatic Text Summarization</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/recommendation-systems/">(no title)</a>
+            <a href="/2024/03/21/abstractive-text-summarization/">(no title)</a>
           </li>
         
       </ul>

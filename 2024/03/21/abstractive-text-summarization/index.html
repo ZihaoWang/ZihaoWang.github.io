@@ -9,19 +9,20 @@
   <meta name="description" content="code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}   MathJax.Hub.Config({     tex2jax: {         inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],         skipTags: [&#39;script&#39;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zihao Wang&#39;s Portfolio">
-<meta property="og:url" content="https://zihaowang.github.io/2024/03/20/abstractive-text-summarization/index.html">
+<meta property="og:url" content="https://zihaowang.github.io/2024/03/21/abstractive-text-summarization/index.html">
 <meta property="og:site_name" content="Zihao Wang&#39;s Portfolio">
 <meta property="og:description" content="code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}   MathJax.Hub.Config({     tex2jax: {         inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],         skipTags: [&#39;script&#39;,">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zihaowang.github.io/images/home5.jpg">
 <meta property="og:image" content="https://zihaowang.github.io/images/summ1.png">
 <meta property="og:image" content="https://zihaowang.github.io/images/summ2.png">
 <meta property="og:image" content="https://zihaowang.github.io/images/summ3.png">
 <meta property="og:image" content="https://zihaowang.github.io/images/summ4.png">
-<meta property="article:published_time" content="2024-03-20T19:25:52.073Z">
-<meta property="article:modified_time" content="2024-03-20T19:25:52.073Z">
+<meta property="article:published_time" content="2024-03-21T14:14:37.732Z">
+<meta property="article:modified_time" content="2024-03-21T14:14:37.732Z">
 <meta property="article:author" content="Zihao Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zihaowang.github.io/images/summ1.png">
+<meta name="twitter:image" content="https://zihaowang.github.io/images/home5.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Zihao Wang's Portfolio" type="application/atom+xml">
   
@@ -78,8 +79,8 @@
       <div class="outer">
         <section id="main"><article id="post-abstractive-text-summarization" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/03/20/abstractive-text-summarization/" class="article-date">
-  <time class="dt-published" datetime="2024-03-20T19:25:52.073Z" itemprop="datePublished">2024-03-20</time>
+    <a href="/2024/03/21/abstractive-text-summarization/" class="article-date">
+  <time class="dt-published" datetime="2024-03-21T14:14:37.732Z" itemprop="datePublished">2024-03-21</time>
 </a>
     
   </div>
@@ -107,9 +108,7 @@ MathJax.Hub.Queue(function() {
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
-
-
-
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Automatic_summarization">Automatic summarization</a> automatically generates a summary that retains the most important content of the original text document.<br>Among various methodologies, we explore <strong>abstractive summarization</strong> that reformulates the original text by generating new sentences capturing the text’s main ideas. This method is challenging as it requires understanding the context and generating content that may not exist verbatim in the original text. Below is an illustration of abstractive text summarization <a target="_blank" rel="noopener" href="https://turbolab.in/types-of-text-summarization-extractive-and-abstractive-summarization-basics/">online</a>, where new texts different than origin texts are generated in the summarization.<br><img src="/images/home5.jpg"><br>In this project, we propose an abstractive summarization method that incorporates the textual structure of summaries.<br>You may view our <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1708.00625">paper</a>.</p>
 <h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p><img src="/images/summ1.png"><br>Our investigation reveals that people may naturally follow some inherent structures when writing abstract summaries.<br>To illustrate this observation, we show examples in figure, which are top story summaries or headlines from CNN&#39;s “Technology” channel. After carefully analyzing the summaries, we can find some common structures, such as “What Happened,” “Who Action What,” etc. For example,</p>
 <ul>
 <li>The summary “Apple sues Qualcomm for nearly 1 billion” can be structuralized as “Who (Apple) Action (sues) What (Qualcomm)”.</li>
@@ -125,7 +124,7 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zihaowang.github.io/2024/03/20/abstractive-text-summarization/" data-id="clu083cor0000k1f722b5bi7s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://zihaowang.github.io/2024/03/21/abstractive-text-summarization/" data-id="clu083cor0000k1f722b5bi7s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -135,20 +134,15 @@ MathJax.Hub.Queue(function() {
     
 <nav id="article-nav">
   
-    <a href="/2024/03/20/knowledge-graph-question-answering/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/03/21/recommendation-systems/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          Automatic Text Summarization
         
       </div>
     </a>
   
-  
-    <a href="/2024/03/20/modeling-uncommon-knowledge/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
-    </a>
   
 </nav>
 
@@ -185,23 +179,23 @@ MathJax.Hub.Queue(function() {
       <ul>
         
           <li>
-            <a href="/2024/03/20/knowledge-graph-embedding-with-LLMs/">(no title)</a>
+            <a href="/2024/03/21/modeling-uncommon-knowledge/">Uncommon Knowledge in Vector Databases</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/knowledge-graph-question-answering/">(no title)</a>
+            <a href="/2024/03/21/knowledge-graph-question-answering/">Knowledge Graph Question Answering Systems</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/abstractive-text-summarization/">(no title)</a>
+            <a href="/2024/03/21/knowledge-graph-embedding-with-LLMs/">Knowledge Graph Embeddings with LLMs</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/modeling-uncommon-knowledge/">(no title)</a>
+            <a href="/2024/03/21/recommendation-systems/">Automatic Text Summarization</a>
           </li>
         
           <li>
-            <a href="/2024/03/20/recommendation-systems/">(no title)</a>
+            <a href="/2024/03/21/abstractive-text-summarization/">(no title)</a>
           </li>
         
       </ul>
